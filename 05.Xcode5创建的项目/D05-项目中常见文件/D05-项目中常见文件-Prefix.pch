@@ -1,0 +1,39 @@
+//
+//  Prefix header
+//
+//  The contents of this file are implicitly included at the beginning of every source file.
+//
+
+#import <Availability.h>
+
+#ifndef __IPHONE_3_0
+#warning "This project uses features only available in iOS SDK 3.0 and later."
+#endif
+
+
+//放在OBJC时的文件，可以被.m 和.mm(OC + C++)文件共享
+#ifdef __OBJC__
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+
+
+#define Height 180.0
+
+
+//如果放在__OBJC__,不管什么文件 都可以共享
+#import "CZPerson.h"
+
+
+//一般在pch文件里除了写一些公共的文件，还自定义Log
+
+#ifdef DEBUG //代表调试状态
+#define CZLog(...) NSLog(__VA_ARGS__)//给NSLog取个别名
+#else
+#define CZLog(...)
+#endif
+
+
+#endif
+
+
+
